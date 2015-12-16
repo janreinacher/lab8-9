@@ -21,7 +21,7 @@ exports.GetAll = function(callback) {
 
 exports.GetByID = function(account_id, callback) {
         console.log(account_id);
-        var query = 'SELECT * FROM company WHERE comp_id=\'' + comp_id + "'";
+        var query = 'SELECT * FROM company WHERE comp_id=\'' + comp_id + ";'"
         console.log(query);
         connection.query(query,
             function (err, result) {
@@ -54,12 +54,13 @@ exports.Insert = function(company_info, callback) {
      then we would not need to have them wrapped in quotes; i.e. + '\'' + the_value + '\''
      NOTE 2: My account table has auto incrementing IDs, but I do not submit values for them.
      */
-    var dynamic_query = 'INSERT INTO company (cName, streetAddress, city, state, zip) VALUES (' +
-        '\'' + company_info.cName + '\', ' +
-        '\'' + company_info.streetAddress + '\', ' +
-        '\'' + company_info.city + '\', ' +
+    var dynamic_query = 'INSERT INTO company (cName, streetAddress, city, state, zip, comp_id) VALUES (' +
+        '\'' + company_info.cName + '\',' +
+        '\'' + company_info.streetAddress + '\',' +
+        '\'' + company_info.city + '\',' +
         '\'' + company_info.state + '\',' +
         '\'' + company_info.zip  + '\',' +
+        '\'' + company_info.comp_id + '\'' +
         ');';
 
     /* this console.log() will print out the query I'm about to send to the MySQL server via the connection.query() method.

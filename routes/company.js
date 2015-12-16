@@ -17,6 +17,7 @@ router.get('/save', function(req, res, next) {
     console.log("City: ", req.query.city);
     console.log("State: ", req.query.state);
     console.log("zip: ", req.query.zip);
+    console.log("comp_id: ", req.query.zip);
 
     companyDal.Insert(req.query, function(err, result){
         if (err) {
